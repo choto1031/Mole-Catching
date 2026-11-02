@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="반쪽 하트">
+  <defs>
+    <linearGradient id="heart" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff8d8d"/>
+      <stop offset="1" stop-color="#e84d5b"/>
+    </linearGradient>
+    <clipPath id="left"><rect x="0" y="0" width="32" height="64"/></clipPath>
+  </defs>
+  <path d="M32 56 7.8 32.8C-3.2 22.2 3.4 5 17.4 5 24 5 29 8.8 32 14.2 35 8.8 40 5 46.6 5 60.6 5 67.2 22.2 56.2 32.8Z" fill="url(#heart)" clip-path="url(#left)"/>
+  <path d="M32 14.2v41.7" fill="none" stroke="#c93c4b" stroke-width="2" stroke-linecap="round"/>
+</svg>

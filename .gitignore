@@ -1,0 +1,31 @@
+# SQLite database and journal files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Python cache and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Runtime output
+*.log
+logs/
+*.pid
+
+# Test/generated image files
+test-images/
+test_*.png
+test_*.jpg
+test_*.jpeg
+generated/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
