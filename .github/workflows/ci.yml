@@ -33,7 +33,7 @@ jobs:
             --tag "$IMAGE_NAME:${{ github.sha }}" .
 
       - name: Verify application imports in built image
-        run: docker run --rm "$IMAGE_NAME:${{ github.sha }}" python -c "import app; print('app import: OK')"
+        run: docker run --rm "$IMAGE_NAME:${{ github.sha }}" python -c "import app; print('app import OK')"
 
       - name: Push image tags
         run: |
