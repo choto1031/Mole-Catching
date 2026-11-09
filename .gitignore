@@ -5,6 +5,21 @@
 *.sqlite
 *.sqlite3
 
+# GitHub Actions self-hosted runner installers and runtime files
+actions-runner*.zip
+actions-runner/
+runner/
+_work/
+_diag/
+externals/
+config.sh
+config.cmd
+run.sh
+run.cmd
+
+# Container runtime data
+docker-data/
+
 # Python cache and local environments
 __pycache__/
 *.py[cod]

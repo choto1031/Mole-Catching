@@ -1,0 +1,41 @@
+name: CI - Build and publish Docker image
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/mole-catching
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build image
+        run: |
+          docker build --pull \
+            --tag "$IMAGE_NAME:latest" \
+            --tag "$IMAGE_NAME:${{ github.sha }}" .
+
+      - name: Verify application imports in built image
+        run: docker run --rm "$IMAGE_NAME:${{ github.sha }}" python -c "import app; print('app import: OK')"
+
+      - name: Push image tags
+        run: |
+          docker push "$IMAGE_NAME:latest"
+          docker push "$IMAGE_NAME:${{ github.sha }}"
